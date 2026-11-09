@@ -78,5 +78,6 @@ Regras de papéis, níveis, release, rollback, segurança e anti-ruído estão e
 
 ## Status
 
-Scaffold local v0.1 (2026-11-09). Ainda sem remote configurado; a criação do
-repositório remoto e a primeira release são decisões humanas.
+Scaffold v0.1 (2026-11-09). Remote:
+<https://github.com/Btt-Okavango/SmartMeM-commons>. A primeira release é
+decisão humana.

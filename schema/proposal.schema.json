@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/Btt-Okavango/smartmem-commons/schema/proposal.schema.json",
+  "$id": "https://github.com/Btt-Okavango/SmartMeM-commons/schema/proposal.schema.json",
   "title": "SmartMeM self-audit proposal frontmatter",
   "description": "Contrato do frontmatter de uma proposta do smartmem-commons. O validador scripts/validate.mjs implementa este contrato sem dependencias externas.",
   "type": "object",
