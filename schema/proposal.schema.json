@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Btt-Okavango/smartmem-commons/schema/proposal.schema.json",
+  "title": "SmartMeM self-audit proposal frontmatter",
+  "description": "Contrato do frontmatter de uma proposta do smartmem-commons. O validador scripts/validate.mjs implementa este contrato sem dependencias externas.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "kind",
+    "scope",
+    "confidence",
+    "evidence",
+    "depends_on",
+    "harness",
+    "proposed_by",
+    "created",
+    "expires"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^sa-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}$",
+      "description": "id unico; o arquivo em proposals/, accepted/ ou rejected/ deve se chamar <id>.md"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "kind": {
+      "enum": ["fato", "config", "protocolo"],
+      "description": "N1=fato; N2=config; N3=protocolo"
+    },
+    "scope": {
+      "enum": ["global"],
+      "description": "Auto-observacao e global-only; proposta de projeto nao entra neste repositorio"
+    },
+    "confidence": {
+      "enum": ["alta", "media", "baixa"]
+    },
+    "evidence": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000,
+      "description": "Resumo de uma linha da evidencia; o detalhe vai na secao ## Evidencia"
+    },
+    "depends_on": {
+      "type": "array",
+      "maxItems": 20,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(SM_[a-z0-9-]+\\.md|sa-[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{3}|https?://\\S+)$"
+      }
+    },
+    "harness": {
+      "enum": ["opencode", "claude-code", "any"]
+    },
+    "proposed_by": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "expires": {
+      "type": "string",
+      "format": "date",
+      "description": "created + 14 dias por padrao; proposta expirada gera aviso, nao erro"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "version": "0.0.0",
+  "date": "YYYY-MM-DD",
+  "proposals": [],
+  "accepted_by": "nome do release manager",
+  "summary": "Resumo curto da release.",
+  "artifacts": []
+}
